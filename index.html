@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script type="module">
+            import { animate, scroll } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm"
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentWeek = Number(urlParams.get("week") ?? 1);
+
+            const sectionsListItems = document.getElementById("sections").children;
+
+            for (let i = 0; i < sectionsListItems.length; i++) {
+                if (i + 1 > currentWeek) {
+                    sectionsListItems[i].style.display = "none";
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1 class="animate">all the pretty horses by cormac mccarthy</h1>
+        </header>
+        <hr>
+        <img src="https://i.kym-cdn.com/photos/images/newsfeed/002/519/787/307" width="500px">
+        <article>
+            <h3>sections</h3>
+            <ol id="sections">
+                <li><a href="sections/1.html">section... uh... 1?</a></li>
+                <li><a href="sections/2.html">2, maybe!</a></li>
+                <li><a href="sections/3.html">odds say 3~</a></li>
+                <li><a href="sections/4.html">4.</a></li>
+            </ol>
+        </article>
+        <hr>
+        <footer>
+            <h5>a robert yin production for the exemplary book club in madison-ish, wisconsin</h5>
+        </footer>
+    </body>
+</html>
