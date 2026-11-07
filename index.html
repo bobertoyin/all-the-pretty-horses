@@ -3,85 +3,9 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <script type="module">
-            import { animate, scroll } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm"
-
-            function getCurrentWeek() {
-                const urlParams = new URLSearchParams(window.location.search);
-                return Number(urlParams.get("week") ?? 1);
-            }
-
-            function toggleSectionsByWeekURLParam(currentWeek) {
-
-                const sectionsListItems = document.getElementById("sections").children;
-
-                for (let i = 0; i < sectionsListItems.length; i++) {
-                    if (i + 1 > currentWeek) {
-                        sectionsListItems[i].style.display = "none";
-                    }
-                }
-            }
-
-            function animateHorses(week) {
-                animateHorse(document.getElementById("horse1"), 60);
-                if (week >= 2) {
-                    animateHorse(document.getElementById("horse2"), 1);
-                } else {
-                    hideHorse(document.getElementById("horse2"));
-                }
-                if (week >= 3) {
-                    animateBackwardHorse(document.getElementById("horse3"), 10);
-                } else {
-                    hideHorse(document.getElementById("horse3"));
-                }
-                if (week >= 4) {
-                    animateSpinningHorse(document.getElementById("horse4"), 1.5);
-                } else {
-                    hideHorse(document.getElementById("horse4"));
-                }
-            }
-
-            function animateHorse(horse, duration) {
-                const sequence = [
-                    [horse, {x: window.innerWidth - 150}], // walk forward
-                    [horse, {rotateY: 180}], // turn around
-                    [horse, {x: 0}], // walk back
-                    [horse, {rotateY: 360}], // turn back around
-                ];
-                animate(
-                    sequence,
-                    { repeat: Infinity, duration: duration, ease: "linear" }
-                );
-            }
-
-            function animateBackwardHorse(horse, duration) {
-                const sequence = [
-                    [horse, {rotateY: 180}], // turn around
-                    [horse, {x: -200}], // walk back
-                    [horse, {rotateY: 360}], // turn back around
-                    [horse, {x: 0}], // walk forward
-                ];
-                animate(
-                    sequence,
-                    { repeat: Infinity, duration: duration, ease: "linear" }
-                );
-            }
-
-            function animateSpinningHorse(horse, duration) {
-                const sequence = [
-                    [horse, {rotate: 360}],
-                ];
-                animate(
-                    sequence,
-                    { repeat: Infinity, duration: duration, ease: "linear" }
-                );
-            }
-
-            function hideHorse(horse) {
-                horse.style.display = "none";
-            }
-
+            import { getCurrentWeek, togglePartsByWeek, animateHorses } from "./scripts/index.js";
             const week = getCurrentWeek();
-            toggleSectionsByWeekURLParam(week);
+            togglePartsByWeek(week);
             animateHorses(week);
         </script>
     </head>
@@ -90,18 +14,18 @@
             <h1 class="animate">all the pretty horses by cormac mccarthy</h1>
         </header>
         <hr>
-        <img src="https://i.kym-cdn.com/photos/images/newsfeed/002/519/787/307" width="500px">
-        <img class="horse" id="horse1" src="https://www.freeiconspng.com/uploads/horse-png-5.png">
-        <img class="horse" id="horse2" src="https://www.freeiconspng.com/uploads/horse-png-5.png">
-        <img class="horse" id="horse3" src="https://www.freeiconspng.com/uploads/horse-png-5.png">
-        <img class="horse" id="horse4" src="https://www.freeiconspng.com/uploads/horse-png-5.png">
+        <img src="./images/how-hungry.png">
+        <img class="horse" id="horse1" src="./images/race-horse.png">
+        <img class="horse" id="horse2" src="./images/race-horse.png">
+        <img class="horse" id="horse3" src="./images/race-horse.png">
+        <img class="horse" id="horse4" src="./images/race-horse.png">
         <article>
-            <h3>sections</h3>
-            <ol id="sections">
-                <li><a href="sections/1.html">section... uh... 1?</a></li>
-                <li><a href="sections/2.html">2, maybe!</a></li>
-                <li><a href="sections/3.html">odds say 3~</a></li>
-                <li><a href="sections/4.html">4.</a></li>
+            <h3>parts</h3>
+            <ol id="parts">
+                <li><a href="parts/1.html">part... uh... 1?</a></li>
+                <li><a href="parts/2.html">2, maybe!</a></li>
+                <li><a href="parts/3.html">odds say 3~</a></li>
+                <li><a href="parts/4.html">4.</a></li>
             </ol>
         </article>
         <hr>
