@@ -1,3 +1,13 @@
 html {
     font-family: sans-serif;
 }
+
+img {
+    display: block;
+}
+
+.horse {
+    width: 100px;
+    margin: 1em 0;
+    border: 1px solid red;
+}
