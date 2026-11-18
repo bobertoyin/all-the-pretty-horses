@@ -1,5 +1,5 @@
 html {
-    font-family: sans-serif;
+    font-family: serif;
 }
 
 img {
@@ -10,4 +10,8 @@ img {
     margin: 1em 0;
     border: 1px solid red;
     clear: both;
+}
+
+.meme {
+    width: 200px;
 }
